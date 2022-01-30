@@ -1,0 +1,17 @@
+.main-Item {
+  width: 100%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+}
+.h2-Item {
+  color: red;
+  text-align: center;
+}
+h3 {
+  color: rgb(17, 0, 255);
+  text-align: center;
+  background-color: aqua;
+}
