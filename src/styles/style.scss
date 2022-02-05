@@ -1,0 +1,12 @@
+@import "../components/NavBar/navBar.scss";
+@import "../components/ItemListContainer/ItemListContainer.scss";
+@import "./variables.scss";
+@import "../components/cartWidget/cartWidget.scss";
+@import "../components/Item/item.scss";
+@import "../components/itemList/ItemList.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

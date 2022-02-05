@@ -1,14 +1,15 @@
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { NavBar } from "./components/NavBar/NavBar";
-import "./styles/style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/style.scss";
 
 function App() {
   return (
     <div>
       <NavBar />
-      <ItemListContainer greeting="PRODUCTOS" />
+      <ItemListContainer />
     </div>
   );
 }
-//greeting="Prueba de titulo"
+
 export default App;
