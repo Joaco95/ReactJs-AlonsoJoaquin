@@ -2,13 +2,24 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 import { NavBar } from "./components/NavBar/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/style.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
+/* import { Nosotros } from "./components/nosotros/nosotros"; */
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <NavBar />
-      <ItemListContainer />
-    </div>
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/inicio" element={<ItemListContainer />} />
+        <Route path="/:años" element={<ItemListContainer />} />
+        <Route path="/categoria/" element="Esta en proceso" />
+        <Route path="/detail/:itemId" element={<ItemDetailContainer />} />
+        <Route path="*" element="ERROR 404" />
+        {/* <Route path="/nosotros" element={<Nosotros />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

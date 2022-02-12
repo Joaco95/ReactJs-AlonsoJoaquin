@@ -1,34 +1,39 @@
 import { ItemList } from "../itemList/itemList";
-import { Articulos } from "../../articulos/articulos";
 import { useEffect, useState } from "react";
 import img from "./esperar.jpg";
+import { useParams } from "react-router-dom";
+import { Tiempo } from "../espera/Tiempo";
 
-export const ItemListContainer = ({ greeting }) => {
-  const [articulos, setArticulos] = useState([]);
-  const [espera, setEspera] = useState(false);
+export const ItemListContainer = () => {
+  const [articulos, setProductos] = useState([]);
+  const [espera, setLoading] = useState(false);
 
-  const Tiempo = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(Articulos);
-      }, 2000);
-    });
-  };
+  const { años } = useParams();
+
+  console.log(años);
+  console.log(articulos);
 
   useEffect(() => {
-    setEspera(true);
+    setLoading(true);
+
     Tiempo()
       .then((res) => {
-        setArticulos(res);
         console.log(res);
+        if (años) {
+          const decada = res.find((el) => el.año === Number(años));
+          console.log(decada);
+          setProductos(decada);
+        } else {
+          setProductos(res);
+        }
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        setEspera(false);
+        setLoading(false);
       });
-  }, []);
+  }, [años]);
   return (
     <main className="main-Item container">
       <h2 className="h2-Item m-5 p-5">Menu</h2>
