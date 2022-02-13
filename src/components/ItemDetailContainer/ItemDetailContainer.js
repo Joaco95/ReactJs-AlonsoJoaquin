@@ -7,9 +7,9 @@ export const ItemDetailContainer = () => {
   const [esperar, setLoading] = useState(false);
   const [item, setItem] = useState(null);
 
-  const { itemId } = useParams();
+  const { Id } = useParams();
 
-  console.log(itemId);
+  console.log(Id);
   console.log(item);
 
   useEffect(() => {
@@ -18,14 +18,14 @@ export const ItemDetailContainer = () => {
     Tiempo()
       .then((res) => {
         console.log(res);
-        const devuelve = res.find((el) => el.id === Number(itemId));
+        const devuelve = res.find((el) => el.id === Id);
         console.log(devuelve);
         setItem(devuelve);
       })
       .finally(() => {
         setLoading(false);
       });
-  }, [itemId]);
+  }, []);
 
   return (
     <div className="">

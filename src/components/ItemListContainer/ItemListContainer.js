@@ -8,9 +8,9 @@ export const ItemListContainer = () => {
   const [articulos, setProductos] = useState([]);
   const [espera, setLoading] = useState(false);
 
-  const { años } = useParams();
+  const { anios } = useParams();
 
-  console.log(años);
+  console.log(anios);
   console.log(articulos);
 
   useEffect(() => {
@@ -19,8 +19,8 @@ export const ItemListContainer = () => {
     Tiempo()
       .then((res) => {
         console.log(res);
-        if (años) {
-          const decada = res.find((el) => el.año === Number(años));
+        if (anios) {
+          const decada = res.filter((el) => el.año === anios);
           console.log(decada);
           setProductos(decada);
         } else {
@@ -33,7 +33,7 @@ export const ItemListContainer = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [años]);
+  }, [anios]);
   return (
     <main className="main-Item container">
       <h2 className="h2-Item m-5 p-5">Menu</h2>
