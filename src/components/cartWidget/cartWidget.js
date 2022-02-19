@@ -1,9 +1,12 @@
-import imagen from "./Img/cartW.png";
+import { ImCart } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 export const CartWidget = () => {
   return (
     <div>
-      <img className="img container" src={imagen} />
+      <Link to="/cart">
+        <ImCart className="img container" />
+      </Link>
     </div>
   );
 };

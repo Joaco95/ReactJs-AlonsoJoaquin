@@ -21,7 +21,6 @@ export const ItemListContainer = () => {
         console.log(res);
         if (anios) {
           const decada = res.filter((el) => el.año === anios);
-          console.log(decada);
           setProductos(decada);
         } else {
           setProductos(res);
