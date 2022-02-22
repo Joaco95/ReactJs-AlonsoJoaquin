@@ -14,9 +14,13 @@ export const ItemDetail = ({
   songs,
   stock,
 }) => {
-  const [cantidad, setCantidad] = useState(0);
+  const [cantidad, setCantidad] = useState();
 
   const { addItem, isInCart } = useContext(CartContext);
+
+  const onAdd = (cambiar) => {
+    setCantidad(cambiar);
+  };
 
   const handleAgregar = () => {
     if (cantidad === 0) return;
@@ -46,16 +50,13 @@ export const ItemDetail = ({
           <Card.Text>{songs}</Card.Text>
         </Card.Body>
       </Card>
-      {isInCart(id) ? (
+      {cantidad ? (
         <Link to="/cart">
           <Button variant="primary">Ir al Carrito</Button>{" "}
         </Link>
       ) : (
         <>
-          <ItemCount max={stock} i={cantidad} setI={setCantidad} />
-          <Button variant="danger" onClick={handleAgregar}>
-            Comprar
-          </Button>
+          <ItemCount max={stock} agregar={onAdd} />
         </>
       )}
     </div>

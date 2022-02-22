@@ -9,9 +9,6 @@ export const ItemDetailContainer = () => {
 
   const { Id } = useParams();
 
-  console.log(Id);
-  console.log(item);
-
   useEffect(() => {
     setLoading(true);
 

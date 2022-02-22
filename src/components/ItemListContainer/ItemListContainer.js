@@ -18,7 +18,6 @@ export const ItemListContainer = () => {
 
     Tiempo()
       .then((res) => {
-        console.log(res);
         if (anios) {
           const decada = res.filter((el) => el.año === anios);
           setProductos(decada);

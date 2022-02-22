@@ -1,12 +1,15 @@
 import { Button } from "react-bootstrap";
+import { useState } from "react";
 
-export const ItemCount = ({ max, min = 0, i, setI }) => {
+export const ItemCount = ({ max, min = 0, agregar }) => {
+  const [algo, setalgo] = useState(min);
+
   const Suma = () => {
-    i < max && setI(i + 1);
+    algo < max && setalgo(algo + 1);
   };
 
   const Resta = () => {
-    i > min && setI(i - 1);
+    algo > min && setalgo(algo - 1);
   };
 
   return (
@@ -14,10 +17,17 @@ export const ItemCount = ({ max, min = 0, i, setI }) => {
       <Button variant="outline-danger" onClick={Resta}>
         -
       </Button>{" "}
-      <h5>{i}</h5>
+      <h5>{algo}</h5>
       <Button variant="outline-danger" onClick={Suma}>
         +
       </Button>{" "}
+      <Button
+        variant="danger"
+        disabled={min === algo}
+        onClick={() => agregar(algo)}
+      >
+        Comprar
+      </Button>
     </div>
   );
 };
