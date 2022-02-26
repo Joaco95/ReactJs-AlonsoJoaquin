@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/style.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
-import { CartProvide } from "./components/cartContext/CartContext";
+import { CartProvide } from "./components/CartContext/CartContext";
+import { Cart } from "./components/Cart/Cart";
 
 /* import { Nosotros } from "./components/nosotros/nosotros"; */
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/decada/:anios" element={<ItemListContainer />} />
           <Route path="/categoria/" element="Esta en proceso" />
           <Route path="/detail/:Id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
 
           <Route path="*" element="ERROR 404" />
           {/* <Route path="/nosotros" element={<Nosotros />} /> */}
