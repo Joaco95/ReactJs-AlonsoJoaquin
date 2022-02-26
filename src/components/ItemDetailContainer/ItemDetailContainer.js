@@ -1,7 +1,10 @@
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Tiempo } from "../espera/Tiempo";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../FireBase/firebase";
+
+/* import { Tiempo } from "../espera/Tiempo"; */
 
 export const ItemDetailContainer = () => {
   const [esperar, setLoading] = useState(false);
@@ -12,6 +15,18 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     setLoading(true);
 
+    const dataBaseReferencia = doc(db, "articulos", Id);
+
+    getDoc(dataBaseReferencia)
+      .then((doc) => {
+        console.log(doc.data());
+        setItem({ id: doc.id, ...doc.data() });
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+
+    /*   Promesa  
     Tiempo()
       .then((res) => {
         console.log(res);
@@ -21,7 +36,7 @@ export const ItemDetailContainer = () => {
       })
       .finally(() => {
         setLoading(false);
-      });
+      }); */
   }, []);
 
   return (

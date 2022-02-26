@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { carrito, addItemTotal, clear, removeItem } = useContext(CartContext);
+  console.log(carrito);
 
-  /*  if (carrito.length === 0) {
+  if (carrito.length === 0) {
     return (
       <>
         <h2>Tu carrito está vacío</h2>
@@ -15,7 +16,7 @@ export const Cart = () => {
         </Link>
       </>
     );
-  } */
+  }
 
   return (
     <>

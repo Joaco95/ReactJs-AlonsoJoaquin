@@ -19,6 +19,8 @@ export const ItemDetail = ({
   const { addItem, isInCart } = useContext(CartContext);
 
   const onAdd = (cambiar) => {
+    console.log(setCantidad);
+    console.log(cambiar);
     setCantidad(cambiar);
   };
 

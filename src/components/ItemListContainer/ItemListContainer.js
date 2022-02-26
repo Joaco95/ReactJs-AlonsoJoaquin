@@ -1,8 +1,10 @@
 import { ItemList } from "../itemList/itemList";
 import { useEffect, useState } from "react";
-import img from "./esperar.jpg";
 import { useParams } from "react-router-dom";
-import { Tiempo } from "../espera/Tiempo";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../FireBase/firebase";
+
+/* import { Tiempo } from "../espera/Tiempo"; */
 
 export const ItemListContainer = () => {
   const [articulos, setProductos] = useState([]);
@@ -10,13 +12,33 @@ export const ItemListContainer = () => {
 
   const { anios } = useParams();
 
-  console.log(anios);
-  console.log(articulos);
+  /* console.log(anios);
+  console.log(articulos); */
 
   useEffect(() => {
     setLoading(true);
 
-    Tiempo()
+    const referenciaDataBase = collection(db, "articulos");
+
+    getDocs(referenciaDataBase)
+      .then((resp) => {
+        setProductos(
+          resp.docs.map((doc) => {
+            return {
+              id: doc.id,
+              ...doc.data(),
+            };
+          })
+        );
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+
+    /*  
+   
+   Promesa
+   Tiempo()
       .then((res) => {
         if (anios) {
           const decada = res.filter((el) => el.año === anios);
@@ -30,13 +52,13 @@ export const ItemListContainer = () => {
       })
       .finally(() => {
         setLoading(false);
-      });
+      }); */
   }, [anios]);
   return (
     <main className="main-Item container">
       <h2 className="h2-Item m-5 p-5">Menu</h2>
       <div>
-        {espera ? <img src={img} /> : <ItemList articulos={articulos} />}
+        {espera ? <h2>esperar</h2> : <ItemList articulos={articulos} />}
       </div>
     </main>
   );
