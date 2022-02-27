@@ -25,21 +25,18 @@ export const ItemDetail = ({
     setCantidad(cambiar);
   }; */
 
-  const onAdd = () => {
-    if (cantidad === 0) return;
+  const onAdd = (contenedor) => {
+    setCantidad(contenedor);
 
-    if (!isInCart(id)) {
-      console.log("entre");
-      const agregar = {
-        id,
-        title,
-        price,
-        stock,
-        cantidad,
-      };
+    const agregar = {
+      id,
+      title,
+      price,
+      stock,
+      cantidad: contenedor,
+    };
 
-      addItem(agregar);
-    }
+    addItem(agregar);
   };
 
   return (
@@ -54,7 +51,7 @@ export const ItemDetail = ({
           <Card.Text>{songs}</Card.Text>
         </Card.Body>
       </Card>
-      {isInCart(id) ? (
+      {cantidad ? (
         <Link to="/cart">
           <Button variant="primary">Ir al Carrito</Button>{" "}
         </Link>

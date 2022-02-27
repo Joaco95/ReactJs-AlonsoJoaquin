@@ -41,7 +41,7 @@ export const Cart = () => {
         <Button variant="outline-dark" onClick={clear}>
           Vaciar Carrito
         </Button>
-        <Button variant="outline-dark">terminarCompra</Button>
+        <Button variant="outline-dark">terminar Compra</Button>
       </div>
     </>
   );

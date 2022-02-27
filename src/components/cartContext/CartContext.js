@@ -14,7 +14,7 @@ export const CartProvide = ({ children }) => {
   };
 
   const addItemTotal = () => {
-    return carrito.reduce((item, art) => item + art.cantidad * art.precio, 0);
+    return carrito.reduce((item, art) => item + art.cantidad * art.price, 0);
   };
 
   const removeItem = (id) => {
