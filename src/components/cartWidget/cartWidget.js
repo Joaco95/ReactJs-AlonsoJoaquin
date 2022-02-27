@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 export const CartWidget = () => {
   const { addItemQuantity } = useContext(CartContext);
+  console.log(addItemQuantity);
 
   return (
     <Link to="/cart">

@@ -4,8 +4,6 @@ import { useState } from "react";
 export const ItemCount = ({ max, min = 0, agregar }) => {
   const [cant, setCant] = useState(min);
 
-  console.log(cant);
-
   const Suma = () => {
     cant < max && setCant(cant + 1);
   };

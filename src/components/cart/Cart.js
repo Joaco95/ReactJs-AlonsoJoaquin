@@ -24,7 +24,7 @@ export const Cart = () => {
         <div key={elemento.id}>
           <h3>Articulo: {elemento.title}</h3>
           <p>Cantidad: {elemento.cantidad}</p>
-          <p>Precio: {elemento.price * elemento.cantidad}</p>
+          <p>Precio: ${elemento.price * elemento.cantidad}</p>
 
           <Button
             variant="outline-dark"

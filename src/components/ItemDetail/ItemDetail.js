@@ -18,16 +18,18 @@ export const ItemDetail = ({
 
   const { addItem, isInCart } = useContext(CartContext);
 
-  const onAdd = (cambiar) => {
-    console.log(setCantidad);
-    console.log(cambiar);
-    setCantidad(cambiar);
-  };
+  console.log(addItem);
+  console.log(isInCart);
 
-  const handleAgregar = () => {
+  /* const onAdd = (cambiar) => {
+    setCantidad(cambiar);
+  }; */
+
+  const onAdd = () => {
     if (cantidad === 0) return;
 
     if (!isInCart(id)) {
+      console.log("entre");
       const agregar = {
         id,
         title,
@@ -52,7 +54,7 @@ export const ItemDetail = ({
           <Card.Text>{songs}</Card.Text>
         </Card.Body>
       </Card>
-      {cantidad ? (
+      {isInCart(id) ? (
         <Link to="/cart">
           <Button variant="primary">Ir al Carrito</Button>{" "}
         </Link>
