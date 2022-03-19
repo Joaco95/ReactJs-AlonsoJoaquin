@@ -3,7 +3,7 @@ import { CartContext } from "../CartContext/CartContext";
 import { Button, Form } from "react-bootstrap";
 import { subirData } from "../FireBase/subirData";
 import * as yup from "yup";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Checkout = () => {
   const msjError = "Campo Obligatorio";

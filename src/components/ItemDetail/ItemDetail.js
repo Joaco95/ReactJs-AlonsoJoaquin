@@ -16,7 +16,7 @@ export const ItemDetail = ({
 }) => {
   const [cantidad, setCantidad] = useState();
 
-  const { addItem, isInCart } = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
 
   const onAdd = (contenedor) => {
     setCantidad(contenedor);
