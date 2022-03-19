@@ -26,7 +26,6 @@ export const CartProvide = ({ children }) => {
   };
 
   const isInCart = (id) => {
-    console.log(id);
     return carrito.some((art) => art.id === id);
   };
 

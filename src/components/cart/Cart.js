@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { carrito, addItemTotal, clear, removeItem } = useContext(CartContext);
-  console.log(carrito);
 
   if (carrito.length === 0) {
     return (
@@ -41,7 +40,9 @@ export const Cart = () => {
         <Button variant="outline-dark" onClick={clear}>
           Vaciar Carrito
         </Button>
-        <Button variant="outline-dark">terminar Compra</Button>
+        <Link to="/Datos">
+          <Button variant="outline-dark">terminar Compra</Button>
+        </Link>
       </div>
     </>
   );

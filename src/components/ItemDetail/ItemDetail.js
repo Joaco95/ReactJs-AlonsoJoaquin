@@ -18,13 +18,6 @@ export const ItemDetail = ({
 
   const { addItem, isInCart } = useContext(CartContext);
 
-  console.log(addItem);
-  console.log(isInCart);
-
-  /* const onAdd = (cambiar) => {
-    setCantidad(cambiar);
-  }; */
-
   const onAdd = (contenedor) => {
     setCantidad(contenedor);
 
@@ -49,6 +42,7 @@ export const ItemDetail = ({
           <Card.Text>$ {price}</Card.Text>
 
           <Card.Text>{songs}</Card.Text>
+          <Card.Text>STOCK DEL PRODUCTO: {stock}</Card.Text>
         </Card.Body>
       </Card>
       {cantidad ? (

@@ -19,7 +19,6 @@ export const ItemDetailContainer = () => {
 
     getDoc(dataBaseReferencia)
       .then((doc) => {
-        console.log(doc.data());
         setItem({ id: doc.id, ...doc.data() });
       })
       .finally(() => {

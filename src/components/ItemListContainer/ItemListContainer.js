@@ -37,8 +37,9 @@ export const ItemListContainer = () => {
       .finally(() => {
         setLoading(false);
       });
+  }, [anios]);
 
-    /*  
+  /*  
    
    Promesa
    Tiempo()
@@ -56,7 +57,7 @@ export const ItemListContainer = () => {
       .finally(() => {
         setLoading(false);
       }); */
-  }, [anios]);
+
   return (
     <main className="main-Item container">
       <h2 className="h2-Item m-5 p-5">Menu</h2>
